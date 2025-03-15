@@ -1,0 +1,15 @@
+---
+  - hosts: all
+    remote_user: ubuntu
+    become: true
+    become_method: sudo
+
+    roles:
+    - role: common
+      tags: [master, slave]
+
+    - role: jmeter
+      tags: [master, slave]
+
+    - role: vnc
+      tags: master
